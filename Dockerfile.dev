@@ -1,7 +1,5 @@
 FROM node:lts-alpine
 
-ENV CI=TRUE
-
 WORKDIR '/usr/app'
 
 COPY ./package.json ./

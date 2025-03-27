@@ -20,9 +20,10 @@ jobs:
     needs: test
     if: github.event_name == 'push'
     steps:
-      - name: Generate deployment packages
-        uses: actions/checkout@v3
-        run: zip -r deploy.zip . -x '*.git*'
+      - name: Generate deployment package
+        steps:
+          - uses: actions/checkout@v3
+          - run: zip -r deploy.zip . -x '*.git*'
 
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v18
